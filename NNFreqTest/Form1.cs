@@ -39,7 +39,7 @@ namespace NNFreqTest
 
             for (int i = 0; i < loopCount; i++)
             {
-                buffer = ExecuteNetwork(exampleAddressDbl);// rng.GetBytes(buffer);
+                buffer = ExecuteNetwork(exampleAddressDbl);
                 rngTest[(int)(buffer)]++;
             }
         }
@@ -65,26 +65,15 @@ namespace NNFreqTest
             {
             };
 
-            // Set title.
             this.chart1.Titles.Add("Frequency Test");
 
-            this.chart1.Series.Add(series1);// seriesArray[i]);
-            this.chart1.ChartAreas.Add(chartArea1);// seriesArray[i]);
+            this.chart1.Series.Add(series1);
+            this.chart1.ChartAreas.Add(chartArea1);
 
-            // Add series.
             for (int i = 0; i < rngTest.Length; i++)
-            {
-                // Add series.
-                // Add point.
                 series1.Points.Add(rngTest[i]);
-            }
 
             chart1.Invalidate();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            series1.Points.Clear();
         }
 
         private byte ExecuteNetwork(double[] exampleAddressDbl)
